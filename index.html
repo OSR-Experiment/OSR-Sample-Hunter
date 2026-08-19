@@ -1,1 +1,46 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sample Hunter</title><link rel="stylesheet" href="style.css"></head><body><main class="app"><header><div class="eyebrow">OSR / SAMPLE HUNTER</div><h1>Find strange things.</h1><p>Search recordings, voices, places, instruments, noise, performances — anything worth stealing with your ears.</p></header><section class="panel"><div class="label-row"><label for="query">What are you hunting?</label><button id="dice" title="Randomize">🎲</button></div><textarea id="query" placeholder="sound of sea, obscure female vocal, old piano recording..."></textarea><div class="controls"><div><label for="count">Samples</label><input id="count" type="number" min="1" max="30" value="20"></div><div><label for="views">Max views</label><input id="views" type="number" min="0" value="3000"></div></div><button id="search">HUNT SAMPLES</button><div id="status"></div></section><section id="loader" class="loader hidden" aria-live="polite"><div class="eater" aria-hidden="true"><div class="mouth"></div><div class="eye e1"></div><div class="eye e2"></div><span class="crumb c1"></span><span class="crumb c2"></span><span class="crumb c3"></span></div><div class="loader-copy"><strong>Sample Eater is hunting…</strong><span id="loaderText">digging through the obscure stuff</span></div></section><section id="results" class="results"></section><footer>Search results come from YouTube. Download and reuse recordings only when you have the necessary rights or permission.</footer></main><script src="app.js"></script></body></html>
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GO HUNT! — OSR Sample Hunter</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<main class="app">
+<header>
+  <div class="eyebrow">OSR / SAMPLE HUNTER</div>
+  <h1>GO HUNT!</h1>
+  <p class="tagline">Go down the rabbit hole. Bring something back.</p>
+</header>
+
+<section class="huntbox">
+  <div class="label-row"><label for="query">WHAT ARE YOU HUNTING?</label><button id="dice" class="icon-btn" title="Random hunt">🎲</button></div>
+  <textarea id="query" placeholder="sound of sea, obscure female vocal, old piano recording..."></textarea>
+  <div class="randoms">
+    <button data-kind="musical">🎵 MUSICAL</button>
+    <button data-kind="texture">🌀 TEXTURE</button>
+    <button data-kind="rhythmic">🥁 RHYTHMIC</button>
+    <button data-kind="weird">👁 WEIRD STUFF</button>
+  </div>
+  <div class="settings">
+    <div><label>DEPTH</label><div class="seg" id="depth"><button data-depth="shallow">SHALLOW</button><button data-depth="deep" class="active">DEEP</button><button data-depth="very">VERY DEEP</button></div></div>
+    <div><label>SAMPLES</label><div class="seg" id="count"><button data-count="10">10</button><button data-count="20" class="active">20</button><button data-count="30">30</button><button data-count="50">50</button></div></div>
+    <div><label>MAX VIEWS</label><div class="seg" id="views"><button data-views="1000">1K</button><button data-views="5000">5K</button><button data-views="10000" class="active">10K</button><button data-views="50000">50K</button><button data-views="0">ANY</button></div></div>
+  </div>
+  <button id="hunt" class="hunt-btn">HUNT</button>
+  <div id="status"></div>
+</section>
+
+<section id="totem" class="totem hidden">
+  <div class="eater"><div class="eye e1"></div><div class="eye e2"></div><div class="mouth"></div><i></i><i></i><i></i></div>
+  <div><strong id="totemTitle">SAMPLE EATER IS HUNTING…</strong><span id="totemText">digging through the obscure corners</span></div>
+</section>
+
+<section id="catchbar" class="catchbar hidden">
+  <div><strong><span id="selectedCount">0</span> CAUGHT</strong><span>Pick the ones worth bringing back.</span></div>
+  <button id="download" disabled>DOWNLOAD PACK</button>
+</section>
+
+<section id="results" class="results"></section>
+<button id="keep" class="keep hidden">KEEP DIGGING →</button>
+<footer>Search results come from YouTube. Download and reuse recordings only when you have the necessary rights or permission.</footer>
+</main>
+<script src="app.js"></script>
+</body></html>

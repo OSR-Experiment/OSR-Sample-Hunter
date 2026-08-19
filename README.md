@@ -1,7 +1,15 @@
-# OSR Sample Hunter V2
+# OSR Sample Hunter V3
 
-No AI is used. The dice button chooses from a fixed list of human-written searches.
+Concept: a human-curated, no-AI rabbit-hole for discovering obscure recordings on YouTube.
 
-This version searches up to five YouTube result pages and filters by view count after retrieving video statistics. YouTube documents `pageToken` pagination and up to 50 results per search request. Additional pages consume API quota.
+V3 adds:
+- recent + all-time search strategy
+- depth modes
+- random hunt themes
+- direct YouTube previews in-page
+- save/catch selection
+- keep digging
+- 10K default max views
+- no AI generation or AI search
 
-The current Vercel version is for discovery. It does not package or store 20 arbitrary YouTube audio files. A real "download 20 samples -> named folder -> ZIP" feature should use a dedicated download worker and storage layer, and only process recordings the user is authorized to download and reuse. Vercel serverless functions are not a good fit for long audio downloads and packaging.
+The download button is intentionally a placeholder until the separate worker/storage service is added. The eventual worker should only process recordings the user is authorized to download and reuse.
