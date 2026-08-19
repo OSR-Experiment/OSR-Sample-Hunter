@@ -18,14 +18,6 @@
   <textarea id="query" placeholder="90s R&B, female acapella amateur, old church choir..."></textarea>
   <div class="rule">Every hunt prioritizes <strong>acapella / vocals-only / minimal backing</strong>.</div>
 
-  <div class="settings">
-    <div><label>SAMPLES</label><div class="seg" id="count">
-      <button data-count="5">5</button><button data-count="10" class="active">10</button><button data-count="20">20</button>
-    </div></div>
-    <div><label>MAX VIEWS</label><div class="seg" id="views">
-      <button data-views="1000">1K</button><button data-views="10000" class="active">10K</button><button data-views="50000">50K</button><button data-views="0">ANY</button>
-    </div></div>
-  </div>
   <button id="hunt" class="hunt-btn">GO HUNT!</button>
   <div id="status"></div>
 </section>
@@ -41,6 +33,15 @@
 </section>
 
 <section id="results" class="results"></section>
+<section id="myPack" class="mypack hidden">
+  <div><strong>MY PACK</strong><span id="packCount">0 SAMPLES</span></div>
+  <button id="viewPack">VIEW MY PACK</button>
+</section>
+<section id="packDrawer" class="packdrawer hidden">
+  <div class="drawerhead"><strong>MY PACK</strong><button id="closePack">CLOSE</button></div>
+  <div id="packItems"></div>
+  <button id="makePack" class="makepack">MAKE MY PACK</button>
+</section>
 
 <footer>No generative AI is used. Search expansion and scoring are rule-based. Search results come from YouTube. Download and reuse recordings only when you have the necessary rights or permission.</footer>
 </main>

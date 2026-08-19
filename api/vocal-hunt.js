@@ -2,8 +2,8 @@ export default async function handler(req,res){
  const key=process.env.YOUTUBE_API_KEY;
  if(!key)return res.status(500).json({error:"YOUTUBE_API_KEY missing on Vercel."});
  const q=String(req.query.q||"").trim();
- const wanted=Math.min(Math.max(Number(req.query.count||10),1),20);
- const maxViews=Math.max(Number(req.query.maxViews||10000),0);
+ const wanted=12;
+ const maxViews=10000;
  if(!q)return res.status(400).json({error:"Empty search."});
 
  // Rule-based intent expansion. No generative AI.
