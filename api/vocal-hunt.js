@@ -1,4 +1,5 @@
 export default async function handler(req,res){
+  res.setHeader("Cache-Control","no-store");
  const key=process.env.YOUTUBE_API_KEY;
  if(!key)return res.status(500).json({error:"YOUTUBE_API_KEY missing on Vercel."});
  const q=String(req.query.q||"").trim();
