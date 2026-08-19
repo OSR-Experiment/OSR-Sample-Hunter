@@ -26,3 +26,6 @@ V6 UX:
 
 
 V7 fixes a frontend JavaScript duplication bug from V6 that prevented the GO HUNT button from running at all.
+
+
+V9: removed vercel.json because Vercel was rejecting the configured function runtime. The runtime is now inferred automatically from the JavaScript API function.
