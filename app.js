@@ -1,27 +1,5 @@
 const $=id=>document.getElementById(id);
-$("search").onclick=async()=>{
-  const btn=$("search"), results=$("results"), status=$("status");
-  const q=$("query").value.trim();
-  if(!q){status.textContent="Écris une recherche.";return}
-  btn.disabled=true; status.textContent="Recherche...";
-  results.innerHTML="";
-  try{
-    const params=new URLSearchParams({
-      q, count:$("count").value, maxViews:$("views").value, duration:$("duration").value
-    });
-    const r=await fetch("/api/search?"+params);
-    const data=await r.json();
-    if(!r.ok) throw new Error(data.error||"Erreur");
-    status.textContent=`${data.items.length} résultat(s) trouvé(s).`;
-    data.items.forEach(x=>{
-      const el=document.createElement("article"); el.className="card";
-      el.innerHTML=`<img class="thumb" src="${x.thumbnail}" alt="">
-        <div><div class="title">${escapeHtml(x.title)}</div>
-        <div class="meta">${escapeHtml(x.channel)} · ${x.views.toLocaleString("fr-FR")} vues · ${x.duration||"durée inconnue"}</div></div>
-        <div class="actions"><a class="open" href="${x.url}" target="_blank" rel="noopener">OPEN</a></div>`;
-      results.appendChild(el);
-    });
-  }catch(e){status.textContent=e.message}
-  finally{btn.disabled=false}
-};
-function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
+const prompts=["obscure female vocal live session","old acoustic recording with beautiful voice","strange choir recording","old piano performance","70s soul vocal session","intimate folk singer recording","Brazilian vocal live recording","African choir field recording","old gospel singer live","Japanese traditional singing recording","weird organ performance","beautiful spoken voice old recording","old cassette vocal recording","forgotten jazz singer live","street musician vocal recording","old film soundtrack vocal","sea sounds old recording","rain in an old recording","train station ambience old recording","strange percussion performance"];
+$("dice").onclick=()=>{$("query").value=prompts[Math.floor(Math.random()*prompts.length)]};
+$("search").onclick=async()=>{const q=$("query").value.trim(),btn=$("search"),results=$("results"),loader=$("loader"),status=$("status");if(!q){status.textContent="Écris une recherche.";return}btn.disabled=true;results.innerHTML="";loader.classList.remove("hidden");status.textContent="";const messages=["digging through the obscure stuff","looking under 3,000 views","following weird rabbit holes","finding the human bits","shaking the sample tree"];let i=0;const tick=setInterval(()=>{$("loaderText").textContent=messages[i++%messages.length]},900);try{const p=new URLSearchParams({q,count:$("count").value,maxViews:$("views").value});const r=await fetch("/api/search?"+p),data=await r.json();if(!r.ok)throw new Error(data.error||"Erreur");status.textContent=`${data.items.length} résultat(s) trouvé(s).`;data.items.forEach(x=>{const el=document.createElement("article");el.className="card";el.innerHTML=`<img class="thumb" src="${x.thumbnail||""}" alt=""><div><div class="title">${esc(x.title)}</div><div class="meta">${esc(x.channel)} · ${x.views.toLocaleString("fr-FR")} vues · ${x.duration||"durée inconnue"}</div></div><div class="actions"><a href="${x.url}" target="_blank" rel="noopener">OPEN</a></div>`;results.appendChild(el)})}catch(e){status.textContent=e.message}finally{clearInterval(tick);loader.classList.add("hidden");btn.disabled=false}};
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}

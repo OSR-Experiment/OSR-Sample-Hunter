@@ -1,16 +1,7 @@
-# Sample Hunter
+# OSR Sample Hunter V2
 
-Mini-site partageable pour rechercher des vidéos YouTube obscures selon une requête, un nombre de résultats, un nombre maximal de vues et une durée.
+No AI is used. The dice button chooses from a fixed list of human-written searches.
 
-## Mise en ligne
+This version searches up to five YouTube result pages and filters by view count after retrieving video statistics. YouTube documents `pageToken` pagination and up to 50 results per search request. Additional pages consume API quota.
 
-1. Créer un projet Vercel et importer ce dossier.
-2. Ajouter la variable d'environnement `YOUTUBE_API_KEY`.
-3. Activer **YouTube Data API v3** dans Google Cloud.
-4. Déployer.
-
-Le site affiche les résultats et renvoie vers les vidéos originales. Il ne contourne pas les mécanismes de téléchargement de YouTube : n'utilisez le téléchargement/réemploi audio que lorsque vous avez l'autorisation nécessaire.
-
-## Idée V2
-
-Ajouter un score de "sample potential", plusieurs recherches générées automatiquement à partir d'une requête libre, favoris et export CSV.
+The current Vercel version is for discovery. It does not package or store 20 arbitrary YouTube audio files. A real "download 20 samples -> named folder -> ZIP" feature should use a dedicated download worker and storage layer, and only process recordings the user is authorized to download and reuse. Vercel serverless functions are not a good fit for long audio downloads and packaging.
