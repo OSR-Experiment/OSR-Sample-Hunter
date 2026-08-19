@@ -1,15 +1,19 @@
-# OSR Sample Hunter V3
+# OSR Sample Hunter V4
 
-Concept: a human-curated, no-AI rabbit-hole for discovering obscure recordings on YouTube.
+A no-AI discovery tool for building curated sample packs from YouTube sources.
 
-V3 adds:
-- recent + all-time search strategy
-- depth modes
-- random hunt themes
-- direct YouTube previews in-page
-- save/catch selection
+V4 decisions:
+- GO HUNT!
+- "Go down the rabbit hole. Bring something back."
+- "Build your own sample pack from YouTube."
+- 5 pack categories: Drums, Instruments, Vocals, Textures, Weird
+- 5 / 10 / 20 sample choices, 10 default
+- 1K / 10K / 50K / Any views, 10K default
+- no depth control
+- no random dice button
+- recent + older discovery strategies
+- direct YouTube preview
+- save/catch workflow
 - keep digging
-- 10K default max views
-- no AI generation or AI search
 
-The download button is intentionally a placeholder until the separate worker/storage service is added. The eventual worker should only process recordings the user is authorized to download and reuse.
+The future pack builder should create short curated segments rather than dumping whole videos. It should only download/process recordings the user is authorized to download and reuse.
