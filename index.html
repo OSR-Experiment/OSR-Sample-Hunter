@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sample Hunter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <div class="eyebrow">SAMPLE HUNTER</div>
+      <h1>Find weird musical gold.</h1>
+      <p>Search obscure YouTube sessions, performances and recordings. Pick what inspires you.</p>
+    </header>
+
+    <section class="panel">
+      <label>What are you looking for?</label>
+      <textarea id="query" placeholder="female vocal live session, old acoustic recording..."></textarea>
+
+      <div class="controls">
+        <div>
+          <label>Samples</label>
+          <input id="count" type="number" min="1" max="50" value="20">
+        </div>
+        <div>
+          <label>Max views</label>
+          <input id="views" type="number" min="0" value="3000">
+        </div>
+        <div>
+          <label>Max duration</label>
+          <select id="duration">
+            <option value="any">Any</option>
+            <option value="short">Under 4 min</option>
+            <option value="medium">Under 10 min</option>
+            <option value="long">Under 20 min</option>
+          </select>
+        </div>
+      </div>
+
+      <button id="search">FIND SAMPLES</button>
+      <div id="status"></div>
+    </section>
+
+    <section id="results" class="results"></section>
+
+    <footer>
+      Use downloads only for recordings you are authorized to download and reuse.
+      YouTube results are linked to their original source.
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
