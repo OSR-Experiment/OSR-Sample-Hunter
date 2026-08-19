@@ -1,19 +1,14 @@
-# OSR Sample Hunter V4
+# OSR Vocal Hunter V5
 
-A no-AI discovery tool for building curated sample packs from YouTube sources.
+V5 deliberately focuses only on VOCALS.
 
-V4 decisions:
-- GO HUNT!
-- "Go down the rabbit hole. Bring something back."
-- "Build your own sample pack from YouTube."
-- 5 pack categories: Drums, Instruments, Vocals, Textures, Weird
-- 5 / 10 / 20 sample choices, 10 default
-- 1K / 10K / 50K / Any views, 10K default
-- no depth control
-- no random dice button
-- recent + older discovery strategies
-- direct YouTube preview
-- save/catch workflow
-- keep digging
+Core idea:
+User intent -> rule-based vocal search expansion -> multiple YouTube search families -> candidate scoring -> diverse shortlist.
 
-The future pack builder should create short curated segments rather than dumping whole videos. It should only download/process recordings the user is authorized to download and reuse.
+The search layer always prioritizes acapella / vocals-only / minimal backing, even when the user's wording is broader (e.g. "90s R&B").
+
+It does NOT exclude Shorts. Instead it applies a small Shorts penalty and stronger metadata-based penalties to obvious AI/spam signals.
+
+No generative AI is used.
+
+The next layer is the important one: analyze each shortlisted source and extract the best vocal segments automatically, then curate them into a sample pack. That processing should happen in a separate worker, not in a Vercel serverless function.

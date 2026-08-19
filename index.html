@@ -2,28 +2,21 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>GO HUNT! — OSR Sample Hunter</title><link rel="stylesheet" href="style.css">
+<title>GO HUNT! — OSR Vocal Hunter</title><link rel="stylesheet" href="style.css">
 </head>
 <body>
 <main class="app">
 <header>
-  <div class="eyebrow">OSR / SAMPLE HUNTER</div>
+  <div class="eyebrow">OSR / VOCAL HUNTER</div>
   <h1>GO HUNT!</h1>
   <p class="tagline">Go down the rabbit hole. Bring something back.</p>
-  <p class="subtag">Build your own sample pack from YouTube.</p>
+  <p class="subtag">Build your own vocal sample pack from YouTube.</p>
 </header>
 
 <section class="huntbox">
   <label for="query">WHAT ARE YOU HUNTING?</label>
-  <textarea id="query" placeholder="old female soul vocals, strange percussion, sound of sea..."></textarea>
-
-  <div class="pack-types">
-    <button data-kind="drums">🥁 DRUMS</button>
-    <button data-kind="instruments">🎹 INSTRUMENTS</button>
-    <button data-kind="vocals">🎤 VOCALS</button>
-    <button data-kind="textures">🌊 TEXTURES</button>
-    <button data-kind="weird">👁 WEIRD</button>
-  </div>
+  <textarea id="query" placeholder="90s R&B, female acapella amateur, old church choir..."></textarea>
+  <div class="rule">Every hunt prioritizes <strong>acapella / vocals-only / minimal backing</strong>.</div>
 
   <div class="settings">
     <div><label>SAMPLES</label><div class="seg" id="count">
@@ -33,25 +26,23 @@
       <button data-views="1000">1K</button><button data-views="10000" class="active">10K</button><button data-views="50000">50K</button><button data-views="0">ANY</button>
     </div></div>
   </div>
-
   <button id="hunt" class="hunt-btn">GO HUNT!</button>
   <div id="status"></div>
 </section>
 
 <section id="totem" class="totem hidden">
   <div class="eater"><div class="eye e1"></div><div class="eye e2"></div><div class="mouth"></div><i></i><i></i><i></i></div>
-  <div><strong>SAMPLE EATER IS HUNTING…</strong><span id="totemText">digging through the obscure corners</span></div>
+  <div><strong>SAMPLE EATER IS HUNTING…</strong><span id="totemText">turning your idea into a hunt</span></div>
 </section>
 
-<section id="catchbar" class="catchbar hidden">
-  <div><strong><span id="selectedCount">0</span> CAUGHT</strong><span>Pick the sounds worth bringing back.</span></div>
-  <button id="download" disabled>MAKE PACK</button>
+<section id="strategy" class="strategy hidden">
+  <div class="strategy-title">HUNT STRATEGY</div>
+  <div id="strategyTags"></div>
 </section>
 
 <section id="results" class="results"></section>
-<button id="keep" class="keep hidden">KEEP DIGGING →</button>
 
-<footer>Search results come from YouTube. Download and reuse recordings only when you have the necessary rights or permission.</footer>
+<footer>No generative AI is used. Search expansion and scoring are rule-based. Search results come from YouTube. Download and reuse recordings only when you have the necessary rights or permission.</footer>
 </main>
 <script src="app.js"></script>
 </body>
