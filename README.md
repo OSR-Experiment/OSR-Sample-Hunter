@@ -23,3 +23,6 @@ V6 UX:
 - user can add/remove sources from MY PACK
 - MY PACK persists in localStorage across hunts
 - final segment extraction is intentionally left for the worker stage
+
+
+V7 fixes a frontend JavaScript duplication bug from V6 that prevented the GO HUNT button from running at all.

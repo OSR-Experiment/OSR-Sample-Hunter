@@ -1,5 +1,4 @@
 const $=id=>document.getElementById(id);
-const $=id=>document.getElementById(id);
 let state={pack:JSON.parse(localStorage.getItem("osrMyPack")||"[]")};
 $("hunt").onclick=hunt;
 $("viewPack").onclick=()=>$("packDrawer").classList.remove("hidden");
@@ -20,24 +19,6 @@ async function hunt(){
    $("strategy").classList.remove("hidden");
    render(d.items||[]);
    $("status").textContent=`${d.items?.length||0} source(s) found.`;
- }catch(e){$("status").textContent=e.message}
- finally{clearInterval(timer);$("totem").classList.add("hidden");$("hunt").disabled=false}
-}
-
-async function hunt(){
- const q=$("query").value.trim();
- if(!q){$("status").textContent="Tell the hunter what vocal you're looking for.";return}
- $("hunt").disabled=true;$("results").innerHTML="";$("strategy").classList.add("hidden");$("totem").classList.remove("hidden");
- const texts=["turning your idea into a hunt","looking for real voices","checking recent uploads","digging through older recordings","avoiding the obvious stuff","finding small human uploads"];
- let n=0;const timer=setInterval(()=>{$("totemText").textContent=texts[n++%texts.length]},650);
- try{
-   const p=new URLSearchParams({q,count:state.count,maxViews:state.maxViews});
-   const r=await fetch("/api/vocal-hunt?"+p),d=await r.json();
-   if(!r.ok)throw new Error(d.error||"Search error");
-   $("strategyTags").innerHTML=(d.strategy||[]).map(x=>`<span class="tag">${esc(x)}</span>`).join("");
-   $("strategy").classList.remove("hidden");
-   render(d.items||[]);
-   $("status").textContent=`${d.items?.length||0} candidate source(s) found.`;
  }catch(e){$("status").textContent=e.message}
  finally{clearInterval(timer);$("totem").classList.add("hidden");$("hunt").disabled=false}
 }
