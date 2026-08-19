@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>GO HUNT! — OSR Vocal Hunter</title><link rel="stylesheet" href="style.css">
+<title>GO HUNT! — OSR Vocal Hunter</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <main class="app">
@@ -10,21 +11,20 @@
   <div class="eyebrow">OSR / VOCAL HUNTER</div>
   <h1>GO HUNT!</h1>
   <p class="tagline">Go down the rabbit hole. Bring something back.</p>
-  <p class="subtag">Build your own vocal sample pack from YouTube.</p>
+  <p class="subtag">Build a vocal sample pack from YouTube.</p>
 </header>
 
 <section class="huntbox">
   <label for="query">WHAT ARE YOU HUNTING?</label>
   <textarea id="query" placeholder="90s R&B, female acapella amateur, old church choir..."></textarea>
-  <div class="rule">Every hunt prioritizes <strong>acapella / vocals-only / minimal backing</strong>.</div>
-
+  <div class="rule">Every hunt prioritizes <strong>acapella / vocals-only / minimal backing</strong>. No generative AI.</div>
   <button id="hunt" class="hunt-btn">GO HUNT!</button>
   <div id="status"></div>
 </section>
 
 <section id="totem" class="totem hidden">
   <div class="eater"><div class="eye e1"></div><div class="eye e2"></div><div class="mouth"></div><i></i><i></i><i></i></div>
-  <div><strong>SAMPLE EATER IS HUNTING…</strong><span id="totemText">turning your idea into a hunt</span></div>
+  <div><strong id="totemTitle">SAMPLE EATER IS HUNTING…</strong><span id="totemText">turning your idea into a hunt</span></div>
 </section>
 
 <section id="strategy" class="strategy hidden">
@@ -32,18 +32,40 @@
   <div id="strategyTags"></div>
 </section>
 
-<section id="results" class="results"></section>
+<section id="pack" class="pack hidden">
+  <div class="packhead">
+    <div>
+      <div class="eyebrow">PACK FOUND</div>
+      <h2 id="packTitle">VOCAL PACK</h2>
+      <div id="packMeta" class="packmeta"></div>
+    </div>
+    <button id="addSelected" class="addselected">ADD SELECTED TO MY PACK</button>
+  </div>
+
+  <div id="samples" class="samples"></div>
+
+  <div class="sources">
+    <div class="strategy-title">SOURCES</div>
+    <div id="sourcesList"></div>
+  </div>
+</section>
+
 <section id="myPack" class="mypack hidden">
   <div><strong>MY PACK</strong><span id="packCount">0 SAMPLES</span></div>
   <button id="viewPack">VIEW MY PACK</button>
 </section>
+
 <section id="packDrawer" class="packdrawer hidden">
   <div class="drawerhead"><strong>MY PACK</strong><button id="closePack">CLOSE</button></div>
   <div id="packItems"></div>
-  <button id="makePack" class="makepack">MAKE MY PACK</button>
+  <button id="exportPack" class="makepack">EXPORT PACK</button>
+  <div id="exportNote" class="exportnote"></div>
 </section>
 
-<footer>No generative AI is used. Search expansion and scoring are rule-based. Search results come from YouTube. Download and reuse recordings only when you have the necessary rights or permission.</footer>
+<footer>
+  Search and source metadata come from YouTube. Audio extraction is a separate processing step.
+  Download and reuse recordings only when you have the necessary rights or permission.
+</footer>
 </main>
 <script src="app.js"></script>
 </body>
