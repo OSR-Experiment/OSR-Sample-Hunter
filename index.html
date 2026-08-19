@@ -28,26 +28,25 @@
 </section>
 
 <section id="strategy" class="strategy hidden">
-  <div class="strategy-title">HUNT STRATEGY</div>
-  <div id="strategyTags"></div>
+  <div class="strategy-title">HUNT STRATEGY</div><div id="strategyTags"></div>
 </section>
 
 <section id="pack" class="pack hidden">
   <div class="packhead">
     <div>
-      <div class="eyebrow">PACK FOUND</div>
+      <div class="eyebrow">SAMPLES FOUND</div>
       <h2 id="packTitle">VOCAL PACK</h2>
       <div id="packMeta" class="packmeta"></div>
     </div>
-    <button id="addSelected" class="addselected">ADD SELECTED TO MY PACK</button>
+    <button id="addSelected" class="addselected" disabled>SELECT SAMPLES</button>
   </div>
 
   <div id="samples" class="samples"></div>
 
-  <div class="sources">
-    <div class="strategy-title">SOURCES</div>
+  <details class="sources">
+    <summary><span>SOURCES</span><span id="sourceCount"></span></summary>
     <div id="sourcesList"></div>
-  </div>
+  </details>
 </section>
 
 <section id="myPack" class="mypack hidden">
@@ -58,14 +57,11 @@
 <section id="packDrawer" class="packdrawer hidden">
   <div class="drawerhead"><strong>MY PACK</strong><button id="closePack">CLOSE</button></div>
   <div id="packItems"></div>
-  <button id="exportPack" class="makepack">EXPORT PACK</button>
+  <button id="exportPack" class="makepack">MAKE MY PACK</button>
   <div id="exportNote" class="exportnote"></div>
 </section>
 
-<footer>
-  Search and source metadata come from YouTube. Audio extraction is a separate processing step.
-  Download and reuse recordings only when you have the necessary rights or permission.
-</footer>
+<footer>Search and source metadata come from YouTube. Download and reuse recordings only when you have the necessary rights or permission.</footer>
 </main>
 <script src="app.js"></script>
 </body>
